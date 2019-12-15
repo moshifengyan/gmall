@@ -1,0 +1,17 @@
+server:
+  port: 8003
+spring:
+  thymeleaf:
+    cache: false #�����û��棬���Ȳ���
+    mode: LEGACYHTML5
+  datasource:
+    url: jdbc:mysql://localhost:3306/gmall?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    password: daitian123
+    username: root
+  application:
+    name: gmallitem
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

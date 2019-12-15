@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daitian.mapper.PmsProductSaleAttrMapper">
+  <resultMap id="BaseResultMap" type="PmsProductSaleAttr">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="product_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sale_attr_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="sale_attr_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_id, sale_attr_id, sale_attr_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pms_product_sale_attr
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from pms_product_sale_attr
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="PmsProductSaleAttr">
+    insert into pms_product_sale_attr (id, product_id, sale_attr_id, 
+      sale_attr_name)
+    values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{saleAttrId,jdbcType=BIGINT}, 
+      #{saleAttrName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="PmsProductSaleAttr">
+    insert into pms_product_sale_attr
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="saleAttrId != null">
+        sale_attr_id,
+      </if>
+      <if test="saleAttrName != null">
+        sale_attr_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="saleAttrId != null">
+        #{saleAttrId,jdbcType=BIGINT},
+      </if>
+      <if test="saleAttrName != null">
+        #{saleAttrName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="PmsProductSaleAttr">
+    update pms_product_sale_attr
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="saleAttrId != null">
+        sale_attr_id = #{saleAttrId,jdbcType=BIGINT},
+      </if>
+      <if test="saleAttrName != null">
+        sale_attr_name = #{saleAttrName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="PmsProductSaleAttr">
+    update pms_product_sale_attr
+    set product_id = #{productId,jdbcType=BIGINT},
+      sale_attr_id = #{saleAttrId,jdbcType=BIGINT},
+      sale_attr_name = #{saleAttrName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

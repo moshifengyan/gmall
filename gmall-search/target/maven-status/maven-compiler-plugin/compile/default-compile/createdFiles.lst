@@ -1,0 +1,5 @@
+com\daitian\feign\ManagerFeignClient1.class
+com\daitian\GmallSearchApplication.class
+com\daitian\service\SearchService.class
+com\daitian\service\impl\SearchServiceImpl.class
+com\daitian\controller\SearchController.class

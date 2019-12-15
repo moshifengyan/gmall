@@ -1,0 +1,23 @@
+server:
+  port: 8008
+spring:
+  application:
+    name: gmallpayment
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  datasource:
+    url: jdbc:mysql://localhost:3306/gmall?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    password: daitian123
+    username: root
+  redis:
+    host: localhost
+    port: 6379
+    database: 2
+  activemq:
+    broker-url: tcp://192.168.6.128:61616
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
